@@ -1,4 +1,4 @@
-* Intro
+# Intro
 
   Fedora Silverblue is an amazing operating system whose workflows are
   all centered around the immutable host system and the user's toolbox
@@ -6,14 +6,14 @@
   issues I first encountered when dealing with it, I am going to
   document the best solutions I have devised for them so far.
 
-* Flatpaks
+# Flatpaks
 
   Flatpak programs work well(?) when used standalone. If you want them
   to interact with other programs, you are better installing them in
   your home dir or inside a container. For instance, I am currently
   making usage of no flatpak programs.
 
-* Containers
+# Containers
 
   At first, I have decided to create a toolbox container named `main`
   in which I install the packages I need which are available directly
@@ -28,16 +28,16 @@
   3. finally, I install the package with `sudo dnf install
      package.rpm`
 
-* Running containerized programs from outside
+# Running containerized programs from outside
 
   In order to make it easy to execute a program which is installed
   inside a container, I came up with this simple script which I call
   `run-inside`.
 
-  #+begin_src sh
-    #!/bin/sh
-    toolbox run --container $1 bash -c "$2"
-  #+end_src
+  ```
+  #!/bin/sh
+  toolbox run --container $1 bash -c "$2"
+  ```
 
   This way, it would be possible to run `emacs` which is installed
   inside the `main` container with `run-inside main emacs`. This
@@ -49,7 +49,7 @@
   Analogous scripts can be devised for the command line interpreter of
   your choice.
 
-* The hellish VSCode installation
+# The hellish VSCode installation
 
   Gosh, that was no simple job. I am documenting it so I am not
   chasing instructions around the internet again.
